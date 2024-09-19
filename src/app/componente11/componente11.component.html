@@ -1,1 +1,28 @@
-<p>componente11 works!</p>
+<!--<p>{{formulario666.value.nome}}</p>  para testar-->
+
+
+<form [formGroup]="formulario666">
+    <input type="text"   formControlName="nome" placeholder="Nome" class="form-control">
+    <input type="number" formControlName="idade"   placeholder="Idade" class="form-control">
+    <input type="text"   formControlName="cidade" placeholder="Cidade" class="form-control">
+
+    <input type="button" value="Cadastrar" class="btn btn-primary">
+    <input type="button" value="Alterar" class="btn btn-primary">
+    <input type="button" value="Remover" class="btn btn-primary">
+    <input type="button" value="Cancelar" class="btn btn-primary">
+</form>
+
+<table class="table"> <!--classe do bootstrap-->
+    <thead> 
+        <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Cidade</th>
+            <th>Selecionar</th>
+        </tr>
+    </thead>
+
+    <tbody></tbody>
+
+</table>
