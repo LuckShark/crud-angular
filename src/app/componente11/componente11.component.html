@@ -1,9 +1,36 @@
 <!--<p>{{formulario666.value.nome}}</p>  para testar-->
 
-
 <form [formGroup]="formulario666">
+
+    <!-- NOME -->
+    @if (formulario666.get('nome').hasError('required') && formulario666.get('nome').touched) {
+        <!--Usando mais classes do bootstrap-->
+        <p class="alert alert-warning">O campo Nome é obrigatório</p>
+    }
+    @if (formulario666.get('nome').hasError('minlength')) {
+        <p class="alert alert-warning">O campo Nome precisa ter no mínimo 3 caracteres</p>
+    }
     <input type="text"   formControlName="nome" placeholder="Nome" class="form-control">
+
+    <!-- IDADE -->
+    @if (formulario666.get('idade').hasError('required') && formulario666.get('idade').touched) {
+        <p class="alert alert-warning">O campo Idade é obrigatório</p>
+    }
+    @if (formulario666.get('idade').hasError('min')) {
+        <p class="alert alert-warning">O campo Idade não aceita números negativos</p>
+    }
+    @if (formulario666.get('idade').hasError('max')) {
+        <p class="alert alert-warning">O campo Idade não aceita números acima de 120</p>
+    }
     <input type="number" formControlName="idade"   placeholder="Idade" class="form-control">
+    
+    <!-- CIDADE -->
+    @if (formulario666.get('cidade').hasError('required') && formulario666.get('cidade').touched) {
+        <p class="alert alert-warning">O campo Cidade é obrigatório</p>
+    }
+    @if (formulario666.get('cidade').hasError('minlength')) {
+        <p class="alert alert-warning">O campo Cidade precisa ter no mínimo 3 caracteres</p>
+    }
     <input type="text"   formControlName="cidade" placeholder="Cidade" class="form-control">
 
     <input type="button" value="Cadastrar" class="btn btn-primary">
