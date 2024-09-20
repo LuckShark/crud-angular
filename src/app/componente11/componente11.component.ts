@@ -65,7 +65,7 @@ export class Componente11Component {
 
   }
 
-  //Função de alteração
+  //! Função de alteração
   alterar(){
     //alterar os dados da pessoa no vetor
     this.vetor[this.indice] = this.formulario666.value as Pessoa;
@@ -76,6 +76,30 @@ export class Componente11Component {
     //Visibilidade dos botões
     this.btnCadastrar = true;
   }
+
+//! Função de remoção
+  remover(){
+    //Removendo pessoa do vetor
+    this.vetor.splice(this.indice, 1); //a partir desse índice, o que eu quero remover? 1 pessoa
+
+    //Limpeza dos inputs
+    this.formulario666.reset();
+
+    //Visibilidade dos botões
+    this.btnCadastrar = true;
+  }
+
+//! Função de cancelar
+  cancelar(){
+
+    //Limpeza dos inputs
+    this.formulario666.reset();
+
+    //Visibilidade dos botões
+    this.btnCadastrar = true;
+    
+  }
+
 
 }
 // Se quiser fazer mais de uma verificação, tem que colocar em [], representando um vetor
