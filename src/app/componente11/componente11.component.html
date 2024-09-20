@@ -34,10 +34,13 @@
     <input type="text"   formControlName="cidade" placeholder="Cidade" class="form-control">
 
     <!--"disabled" é uma propriedade nativa do HTML / mas com o angular, consigo colocar lógica nele-->
-    <input type="button" value="Cadastrar" class="btn btn-primary" [disabled]="formulario666.invalid">
-    <input type="button" value="Alterar" class="btn btn-primary" [disabled]="formulario666.invalid">
-    <input type="button" value="Remover" class="btn btn-primary">
-    <input type="button" value="Cancelar" class="btn btn-primary">
+    @if (btnCadastrar) {
+        <input type="button" value="Cadastrar" (click)="cadastrar()" class="btn btn-primary" [disabled]="formulario666.invalid">
+    }@else {
+        <input type="button" value="Alterar" class="btn btn-primary" [disabled]="formulario666.invalid">
+        <input type="button" value="Remover" class="btn btn-primary">
+        <input type="button" value="Cancelar" class="btn btn-primary">
+    }
 </form>
 
 <table class="table"> <!--classe do bootstrap-->
