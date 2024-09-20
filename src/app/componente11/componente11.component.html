@@ -33,8 +33,9 @@
     }
     <input type="text"   formControlName="cidade" placeholder="Cidade" class="form-control">
 
-    <input type="button" value="Cadastrar" class="btn btn-primary">
-    <input type="button" value="Alterar" class="btn btn-primary">
+    <!--"disabled" é uma propriedade nativa do HTML / mas com o angular, consigo colocar lógica nele-->
+    <input type="button" value="Cadastrar" class="btn btn-primary" [disabled]="formulario666.invalid">
+    <input type="button" value="Alterar" class="btn btn-primary" [disabled]="formulario666.invalid">
     <input type="button" value="Remover" class="btn btn-primary">
     <input type="button" value="Cancelar" class="btn btn-primary">
 </form>
