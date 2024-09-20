@@ -1,1 +1,7 @@
 <app-componente11></app-componente11>
+
+<!-- O spinner só aparece quando isLoading é true -->
+<app-loading *ngIf="isLoading"></app-loading>
+
+<!-- Botão para simular o início do carregamento -->
+<button class="btn btn-primary" (click)="loadData()">Atualizar</button>

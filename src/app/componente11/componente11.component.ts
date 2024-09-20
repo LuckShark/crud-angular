@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Pessoa } from '../modelo/Pessoa';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-componente11',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   templateUrl: './componente11.component.html',
   styleUrl: './componente11.component.css'
@@ -26,6 +28,9 @@ export class Componente11Component {
   //Inicializamos ele como um array vazio
   vetor:Pessoa[] = [];
 
+  //Variável para armazenar o índice da pessoa selecionada. Usado depois no "selecionar()"
+  indice:number = -1; //a partir do 0, já tem gente, por isso que fica -1, pq n tem ninguem
+
   // !Função de cadastro FULL
   cadastrar(){
 
@@ -39,6 +44,37 @@ export class Componente11Component {
     // TODO (TEST ONLY)
     console.table(this.vetor);
 
+  }
+
+// !Função de Selecionar FULL
+//vai ter que ter um parametro obrigatório, que é o indice do vetor
+  selecionar(indice:number){
+
+    //Atribuir o índice da pessoa
+    this.indice = indice;
+
+    //Atribuir os dados da pessoa no formulário
+    this.formulario666.setValue({
+      nome : this.vetor[indice].nome,
+      idade : this.vetor[indice].idade,
+      cidade: this.vetor[indice].cidade
+    });
+
+  // Visibilidade dos botões
+  this.btnCadastrar = false;
+
+  }
+
+  //Função de alteração
+  alterar(){
+    //alterar os dados da pessoa no vetor
+    this.vetor[this.indice] = this.formulario666.value as Pessoa;
+
+    //limpar os inputs
+    this.formulario666.reset();
+
+    //Visibilidade dos botões
+    this.btnCadastrar = true;
   }
 
 }
